@@ -220,6 +220,12 @@ body {
     cursor: pointer; 
 }
 
+/* #chooseLvl ul li:active {  
+    background-color: antiquewhite;
+    color: rgba(33, 53, 71);
+    cursor: pointer; 
+} */
+
 @media (max-width: 576px) {
     .logo {
         position: absolute;
