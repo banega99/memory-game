@@ -252,7 +252,7 @@ function levelSwitch() {
         case 2:
             res = 0
             timer = 0
-            interval = 60
+            interval = 40
 
             container.className = 'level2'
             container.innerHTML = ''
@@ -263,7 +263,7 @@ function levelSwitch() {
         case 3:
             res = 0
             timer = 0
-            interval = 110
+            interval = 90
 
             container.className = 'level3'
             container.innerHTML = ''
@@ -274,7 +274,7 @@ function levelSwitch() {
         case 4:
             res = 0
             timer = 0
-            interval = 160
+            interval = 140
 
             container.className = 'level4'
             container.innerHTML = ''
@@ -285,7 +285,7 @@ function levelSwitch() {
         case 5:
             res = 0
             timer = 0
-            interval = 210
+            interval = 190
 
             container.className = 'level5'
             container.innerHTML = ''
@@ -296,7 +296,7 @@ function levelSwitch() {
         case 6:
             res = 0
             timer = 0
-            interval = 280
+            interval = 250
             container.className = 'level6'
             container.innerHTML = ''
             row = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r']
