@@ -13,7 +13,7 @@ var timer = 0
 var timerBtn = 5
 var interval
 var defeat = document.getElementById('defeat')
-if (level == 1) interval = 50
+if (level == 1) interval = 30
 
 // level.btn.
 
@@ -105,7 +105,23 @@ function lvlBtnWdth() {
 //     let viewport = document.querySelector("meta[name=viewport]");
 //     viewport.setAttribute("content", "height=" + viewheight + "px, width=" + viewwidth + "px, initial-scale=1.0");
 // }, 300);
-
+function defWin(){
+    defeat.addEventListener('click', () => {
+        level = 1
+        res = 0
+        row = ['a', 'b']
+        column = ['a', 'b']
+        timer = 0
+        interval = 50
+        line.style.width = `${timer}px`
+        container.innerHTML = ''
+        startBtn.style.pointerEvents = 'all';
+        startBtn.style.display = 'flex'
+        timerBtn = 5
+        startBtn.innerText = 'START'
+        defeat.style.display = 'none'
+    })
+}
 
 
 // createLevel()
@@ -119,21 +135,7 @@ function createLevel() {
         if (line.style.width === `${window.innerWidth}px`) {
             container.innerHTML = ''
             defeat.style.display = 'flex'
-            defeat.addEventListener('click', () => {
-                level = 1
-                res = 0
-                row = ['a', 'b']
-                column = ['a', 'b']
-                timer = 0
-                interval = 50
-                line.style.width = `${timer}px`
-                container.innerHTML = ''
-                startBtn.style.pointerEvents = 'all';
-                startBtn.style.display = 'flex'
-                timerBtn = 5
-                startBtn.innerText = 'START'
-                defeat.style.display = 'none'
-            })
+            defWin()
             clearInterval(timerLine)
         }
     }, interval)
@@ -185,7 +187,7 @@ function createLevel() {
                     }
                     setTimeout(() => {
                         if (compare[0] == compare[1]) {
-                            timer = timer - 20
+                            timer = timer - 15
                             for (let card of cards) {
                                 card.style.pointerEvents = 'all';
                             }
@@ -204,9 +206,13 @@ function createLevel() {
                                 cardArrB = []
                                 level++
                                 if(level > 6){
-                                    defeat.style.display = 'block'
+                                    container.innerHTML = ''
+                                    defeat.style.display = 'flex'
+                                    defWin()
                                     defeat.style.color = 'green'
-                                    defeat.innerText = 'VICTORY'
+                                    defeat.innerHTML= '<h1>VICTORY!</h1>'
+                                    
+                                    document.getElementById('vic')
                                 }
                                 for (let l = 0; l < front.length; l++) {
                                     const front1 = front[l];
@@ -246,7 +252,7 @@ function levelSwitch() {
         case 2:
             res = 0
             timer = 0
-            interval = 80
+            interval = 60
 
             container.className = 'level2'
             container.innerHTML = ''
@@ -257,7 +263,7 @@ function levelSwitch() {
         case 3:
             res = 0
             timer = 0
-            interval = 150
+            interval = 110
 
             container.className = 'level3'
             container.innerHTML = ''
@@ -268,7 +274,7 @@ function levelSwitch() {
         case 4:
             res = 0
             timer = 0
-            interval = 220
+            interval = 160
 
             container.className = 'level4'
             container.innerHTML = ''
@@ -279,7 +285,7 @@ function levelSwitch() {
         case 5:
             res = 0
             timer = 0
-            interval = 300
+            interval = 210
 
             container.className = 'level5'
             container.innerHTML = ''
@@ -290,7 +296,7 @@ function levelSwitch() {
         case 6:
             res = 0
             timer = 0
-            interval = 380
+            interval = 280
             container.className = 'level6'
             container.innerHTML = ''
             row = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r']
