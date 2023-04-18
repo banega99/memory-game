@@ -18,6 +18,10 @@ body {
     background-image: url(../footb2/FIFA\ 23\ Screenshot\ 2022.12.16\ -\ 12.47.06.48.png);
 }
 
+.menu {
+    border: 1px solid;
+}
+
 #level {
     position: absolute;
     top: 10px;
