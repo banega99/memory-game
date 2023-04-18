@@ -1,0 +1,271 @@
+/* @font-face {
+    font-family: 'Graphik Bold';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    src: local('Graphik Bold'), url('../graphik/GraphikBlackItalic.otf') format('otf');
+    } */
+    @import url('https://fonts.cdnfonts.com/css/graphik?styles=44659');
+
+
+body {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-family: 'Graphik';
+    margin: 0;
+    color: white;
+    background-image: url(../footb2/FIFA\ 23\ Screenshot\ 2022.12.16\ -\ 12.47.06.48.png);
+}
+
+.logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 150px;
+    height: 30px;
+}
+
+.logo img {
+    height: 100%;
+    width: 100%;
+}
+
+.logo > h2 {
+    margin-top: -5px;
+    margin-left: 30px;
+}
+
+.level1 {
+    outline: none;
+    width: fit-content;
+    height: fit-content;
+    margin: 20vh auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+
+}
+
+.back {
+    background-image: url(../footb2/gold1.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    outline: none;
+    border-radius: 5px;
+    position: absolute;
+    width: 150px;
+    height: 200px;
+    /* border: 1px solid; */
+    backface-visibility: hidden;
+    transition: transform 0.5s linear;
+    transform: rotateY(0deg);
+}
+
+.back>img {
+    width: 100%;
+    height: 100%;
+}
+
+.front {
+    /* background-size: cover;
+    background-position: center; */
+    outline: none;
+    border-radius: 5px;
+    position: absolute;
+    width: 150px;
+    height: 200px;
+    /* border: 1px solid; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.5s linear;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    /* color: transparent; */
+}
+
+.front > img {
+    width: 74%;
+    height: 89%;
+}
+
+.front>h1 {
+    position: absolute;
+    color: transparent;
+}
+
+.card {
+    outline: none;
+    position: relative;
+    width: 150px;
+    height: 200px;
+}
+
+.level2 {
+    outline: none;
+    width: fit-content;
+    height: fit-content;
+    margin: 20vh auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.level3 {
+    outline: none;
+    width: fit-content;
+    height: fit-content;
+    margin: 20vh auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.level4 {
+    outline: none;
+    width: fit-content;
+    height: fit-content;
+    margin: 20vh auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+.level5 {
+    outline: none;
+    width: fit-content;
+    height: fit-content;
+    margin: 20vh auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+.level6 {
+    outline: none;
+    width: fit-content;
+    height: fit-content;
+    margin: 20vh auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+@media (max-width: 576px) {
+    .logo {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 60px;
+        height: 15px;
+    }
+
+    .logo img {
+        height: 100%;
+        width: 100%;
+    }
+
+    .logo > h2 {
+        font-size: 7px;
+        margin-top: -5px;
+        margin-left: 15px;
+    }
+
+    .level1 .card{
+        outline: none;
+        position: relative;
+        width: 150px;
+        height: 200px;
+    }
+
+    .level1 .card .front img{
+        width: 80%;
+        height: 92%;
+    }
+
+
+    .card {
+        outline: none;
+        position: relative;
+        width: 90px;
+        height: 160px;
+    }
+
+    .front {
+        width: 100%;
+        height: 100%;
+    }
+
+    .front>img {
+        width: 100%;
+        height: 89%;
+    }
+
+    .back {
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 100%;
+    }
+
+
+    .back {
+        width: 100%;
+        height: 100%;
+    }
+
+
+
+    .level2 {
+        margin: 5vh auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+    }
+
+    .level3 {
+        margin: 10vh auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+    }
+
+    .level4 {
+        margin: 10vh auto;
+    }
+
+    .level5 {
+        margin: 5vh auto;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+    }
+
+    .level5 .card {
+        height: 130px;
+        width: 80px;
+    }
+
+    .level5 .card .front img {
+        /* height: 130px; */
+        width: 90%;
+    }
+
+    .level6 {
+        margin: 3vh auto;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    .level6 .card {
+        height: 90px;
+        width: 70px;
+    }
+
+    .level6 .card .front img {
+        height: 100%;
+        width: 80%;
+    }
+
+
+
+}
