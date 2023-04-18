@@ -1,16 +1,44 @@
 var container = document.getElementsByClassName('level1')[0];
 var level = 1
+console.log(level)
 var res = 0
 var row = ['a', 'b']
 var column = ['a', 'b']
+var levelBtn = document.getElementById('btn')
+var chsLvl = document.getElementById('chooseLvl')
+var lvlLis = document.getElementsByClassName('lvlLi')
 
-if(level < 5) {
+for (let i = 0; i < lvlLis.length; i++) {
+    const lvlLi = lvlLis[i];
+    lvlLi.addEventListener('click',()=>{
+        level = i
+        console.log(level)
+        levelSwitch()
+    })
+    
+    
+}
+
+levelBtn.addEventListener('click', ()=>{
+    if(chsLvl.style.display == 'none'){
+        chsLvl.style.display = 'block'
+    }else {
+        chsLvl.style.display = 'none'
+    }
+})
+
+if(level < 5 && window.innerWidth < 576) {
     var logo = document.getElementsByClassName('logo')[0]
     var title = document.getElementById('title')
     logo.style.width = '120px'
     logo.style.height = '40px'
     title.style.fontSize = '12px'
     title.style.marginLeft = '24px'
+}
+
+if(level > 5) { 
+    levelBtn.style.width = '50px'
+    chsLvl.style.width = '50px'
 }
 
 //Resenje za problem kada tastatura natelefonu pomera sadrzaj stranice na gore
