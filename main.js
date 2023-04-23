@@ -37,10 +37,22 @@ score1.innerText = `${player}`
 score2.innerText = `${comp}`
 
 mode.addEventListener('click', () => {
+    // window.addEventListener('click', display)
+    function display() {
+        mode.style.display = 'flex'
+        chooseMode.style.display = 'none'
+        startBtn.style.pointerEvents = 'all'
+        startBtn.style.opacity = '1'
+        window.removeEventListener('click', display)
+    }
     chooseMode.style.display = 'flex'
     mode.style.display = 'none'
     startBtn.style.pointerEvents = 'none'
     startBtn.style.opacity = '0.6'
+    setTimeout(()=>{
+        window.addEventListener('click', display)
+    }, 200)
+    
     for (let i = 0; i < modeLi.length; i++) {
         const element = modeLi[i];
         element.addEventListener('click', () => {
@@ -49,10 +61,7 @@ mode.addEventListener('click', () => {
                     timerMode = true
                     twoPlayers = false
                     pvp = false
-                    mode.style.display = 'flex'
-                    chooseMode.style.display = 'none'
-                    startBtn.style.pointerEvents = 'all'
-                    startBtn.style.opacity = '1'
+                    display()
                     break;
                 case 1:
                     timerMode = false
@@ -60,10 +69,7 @@ mode.addEventListener('click', () => {
                     pvp = false
                     var playerPrompt = prompt('Red player name')
                     playerName.innerText = `${playerPrompt}`
-                    mode.style.display = 'flex'
-                    chooseMode.style.display = 'none'
-                    startBtn.style.pointerEvents = 'all'
-                    startBtn.style.opacity = '1'
+                    display()
                     break;
                 case 2:
                     timerMode = false
@@ -73,10 +79,7 @@ mode.addEventListener('click', () => {
                     var playerPrompt2 = prompt('Blue player name')
                     playerName.innerText = `${playerPrompt}`
                     playerName2.innerText = `${playerPrompt2}`
-                    mode.style.display = 'flex'
-                    chooseMode.style.display = 'none'
-                    startBtn.style.pointerEvents = 'all'
-                    startBtn.style.opacity = '1'
+                    display()
                     break;
             }
             // if (i == 0) {
@@ -189,24 +192,24 @@ function lvlBtnWdth() {
 // }, 300);
 
 function defWin() {
-    
-        level = 1
-        res = 0
-        row = ['a', 'b']
-        column = ['a', 'b']
-        timer = 0
-        interval = 40
-        line.style.width = `${timer}px`
-        container.innerHTML = ''
-        startBtn.style.pointerEvents = 'all';
-        startBtn.style.display = 'flex'
-        menu.style.display = 'block'
-        mode.style.display = 'flex'
-        timerBtn = 5
-        startBtn.innerText = 'START'
-        defeat.style.display = 'none'
-        scoreBoard.style.display = 'none'
-        window.removeEventListener('click', defWin)
+
+    level = 1
+    res = 0
+    row = ['a', 'b']
+    column = ['a', 'b']
+    timer = 0
+    interval = 40
+    line.style.width = `${timer}px`
+    container.innerHTML = ''
+    startBtn.style.pointerEvents = 'all';
+    startBtn.style.display = 'flex'
+    menu.style.display = 'block'
+    mode.style.display = 'flex'
+    timerBtn = 5
+    startBtn.innerText = 'START'
+    defeat.style.display = 'none'
+    scoreBoard.style.display = 'none'
+    window.removeEventListener('click', defWin)
 }
 
 function createLevel() {
@@ -232,7 +235,7 @@ function createLevel() {
             if (line.style.width === `${window.innerWidth}px`) {
                 container.innerHTML = ''
                 defeat.style.display = 'flex'
-                defWin()
+                window.addEventListener('click',defWin)
                 clearInterval(timerLine)
             }
         }, interval)
@@ -403,13 +406,13 @@ function createLevel() {
 
 
                             if (level > 6) {
-                                if(pvp || twoPlayers){
+                                if (pvp || twoPlayers) {
                                     container.innerHTML = ''
                                     scoreBoard.style.display = 'block'
                                     scoreBoard.style.top = '20%'
                                     scoreBoard.style.left = '20%'
                                 }
-                                
+
 
                             }
 
@@ -634,7 +637,7 @@ function levelSwitch() {
             break;
 
         default:
-            if(pvp || twoPlayers){
+            if (pvp || twoPlayers) {
                 container.innerHTML = ''
                 scoreBoard.style.display = 'block'
                 scoreBoard.className = 'score-win'
@@ -646,7 +649,7 @@ function levelSwitch() {
                 window.addEventListener('click', defWin)
                 defeat.style.color = 'green'
                 defeat.innerHTML = '<h1>VICTORY!</h1>'
-                
+
             }
             break;
     }

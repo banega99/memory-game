@@ -459,6 +459,7 @@ li{
 
 #defeat {
     background-color: rgba(33, 53, 71);
+    display: flex;
     width: 70%;
     height: 200px;
     position: absolute;
@@ -697,6 +698,7 @@ li{
         text-align: center;
         /* padding-top: 3px; */
         position: absolute;
+        
         /* border: 1px solid; */
         width: fit-content;
         height: fit-content;
