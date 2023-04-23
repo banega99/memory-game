@@ -275,7 +275,7 @@ li{
 
 .line {
     position: absolute;
-    top: 40px;
+    top: 0px;
     /* width: 100px; */
     height: 4px;
     background-color: antiquewhite;
