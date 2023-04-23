@@ -171,8 +171,8 @@ li{
 .menu {
     width: fit-content;
     height: fit-content;
-    top: 20%;
-    left: 25%;
+    top: 30%;
+    left: 35%;
     position: absolute;
     /* border: 1px solid; */
 }
@@ -477,6 +477,14 @@ li{
 }
 
 @media (max-width: 576px) {
+    .menu {
+        width: fit-content;
+        height: fit-content;
+        top: 20%;
+        left: 25%;
+        position: absolute;
+        /* border: 1px solid; */
+    }
     .logo {
         position: absolute;
         top: 10px;
