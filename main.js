@@ -10,7 +10,7 @@ var logo = document.getElementsByClassName('logo')[0]
 var title = document.getElementById('title')
 var line = document.getElementsByClassName('line')[0]
 var timer = 0
-var timerBtn = 5
+var timerBtn = 1
 var interval
 var defeat = document.getElementById('defeat')
 if (level == 1) interval = 30
@@ -20,10 +20,11 @@ var pvp = false
 var scoreBoard = document.getElementsByClassName('score')[0]
 var score1 = document.getElementsByClassName('score1')[0]
 var score2 = document.getElementsByClassName('score2')[0]
+var sbMinutes = document.getElementById('minutes')
+var minutes = 00
 var playerName = document.getElementsByClassName('player1')[0]
 var playerName2 = document.getElementsByClassName('player2')[0]
 var player = 0
-// var player1 = true
 var player2 = 0
 var scorePlayer1 = 0
 var scorePlayer2 = 0
@@ -37,7 +38,6 @@ score1.innerText = `${player}`
 score2.innerText = `${comp}`
 
 mode.addEventListener('click', () => {
-    // window.addEventListener('click', display)
     function display() {
         mode.style.display = 'flex'
         chooseMode.style.display = 'none'
@@ -51,8 +51,7 @@ mode.addEventListener('click', () => {
     startBtn.style.opacity = '0.6'
     setTimeout(()=>{
         window.addEventListener('click', display)
-    }, 200)
-    
+    }, 200)    
     for (let i = 0; i < modeLi.length; i++) {
         const element = modeLi[i];
         element.addEventListener('click', () => {
@@ -82,20 +81,11 @@ mode.addEventListener('click', () => {
                     display()
                     break;
             }
-            // if (i == 0) {
-
-            // } else if ()
         })
-
     }
 })
 
-// level.btn.
 if (!twoPlayers && !pvp) {
-    //     scoreBoard.style.display = 'block'
-    //     // logo.style.top = '0px'
-    //     logo.style.right = '10px'
-    // } else {
     scoreBoard.style.display = 'none'
     logo.style.left = '10px'
 }
@@ -183,16 +173,7 @@ function lvlBtnWdth() {
 
 }
 
-//Resenje za problem kada tastatura natelefonu pomera sadrzaj stranice na gore
-// setTimeout(function () {
-//     let viewheight = window.innerHeight;
-//     let viewwidth = window.innerWidth;
-//     let viewport = document.querySelector("meta[name=viewport]");
-//     viewport.setAttribute("content", "height=" + viewheight + "px, width=" + viewwidth + "px, initial-scale=1.0");
-// }, 300);
-
 function defWin() {
-
     level = 1
     res = 0
     row = ['a', 'b']
@@ -214,19 +195,10 @@ function defWin() {
 
 function createLevel() {
     if (twoPlayers || pvp) {
-
         logo.style.left = 'auto'
         logo.style.right = '10px'
         scoreBoard.style.display = 'block'
-        // logo.style.top = '0px'
-
     }
-    // else {
-    //     scoreBoard.style.display = 'none'
-    //     logo.style.left = '10px'
-    // }
-
-    // console.log(interval)
     if (timerMode) {
         console.log(interval)
         var timerLine = setInterval(() => {
@@ -240,7 +212,6 @@ function createLevel() {
             }
         }, interval)
     }
-
 
     container.innerHTML = ''
     lvlBtnWdth()
@@ -276,23 +247,13 @@ function createLevel() {
     var playerComp = 0
     var firstPlayer = true
     var secondPlayer = false
-    var comp = 0
     var compRand
-
-    // var matchedCards = []
     var turnedCards = []
     for (let turnedCard of cards) {
         turnedCards.push(turnedCard)
     }
-
     for (let i = 0; i < cards.length; i++) {
-        if (res == row.length) {
-            container.innerHTML = ''
-            break
-        }
         const card = cards[i];
-
-
         if (card.className === 'card' && cardsTurn.length < 2) {
             card.addEventListener('click', cardTurn)
         }
@@ -303,7 +264,6 @@ function createLevel() {
             card.className = 'turn-card'
             card.style.pointerEvents = 'none'
             cardsTurn.push(card)
-            // turnedCards.push(card)
             compare.unshift(front[i].innerText)
             cardArrB.push(back[i])
             cardArrF.push(front[i])
@@ -316,11 +276,9 @@ function createLevel() {
                         if (pvp) {
                             if (firstPlayer) {
                                 player++
-
                             }
                             if (secondPlayer) {
                                 player2++
-
                             }
                         }
                         if (twoPlayers) {
@@ -356,23 +314,11 @@ function createLevel() {
                                 }
                             }
 
-                            // setTimeout(() => {
-                            //     container.innerHTML = ''
-                            // }, 500)
-                            // container.innerHTML = ''
                             console.log('kraj')
                             console.log(cardsTurn)
-                            // for (let l = 0; l < front.length; l++) {
-                            //     const front1 = front[l];
-                            //     const back1 = back[l];
-                            //     front1.style.transform = 'perspective(900px) rotateY(180deg)'
-                            //     back1.style.transform = 'perspective(900px) rotateY(0deg)'
-
-                            // }
-                            // clearInterval(timerLine)
+                            clearInterval(timerLine)
                             player = 0
                             player2 = 0
-
                             timer = 0
                             interval
                             compare = []
@@ -380,15 +326,6 @@ function createLevel() {
                             cardArrB = []
                             cardsTurn = []
                             clearInterval(compTurn)
-                            // let turnedCards = document.getElementsByClassName('turn-card')
-                            // for
-                            console.log(turnedCards)
-                            // setTimeout(() => {
-                            //     for (let k = 0; k < turnedCards.length; k++) {
-                            //         const element = turnedCards[k];
-                            //         element.className = 'card'
-                            //     }
-                            // }, 400)
                             k = 0
                             var turnBack = setInterval(() => {
                                 turnedCards[k].className = 'card'
@@ -399,44 +336,20 @@ function createLevel() {
                             }, 100)
                             level++
                             setTimeout(() => {
-                                clearInterval(timerLine)
                                 levelSwitch()
                             }, 1000)
-
-
-
-                            if (level > 6) {
-                                if (pvp || twoPlayers) {
-                                    container.innerHTML = ''
-                                    scoreBoard.style.display = 'block'
-                                    scoreBoard.style.top = '20%'
-                                    scoreBoard.style.left = '20%'
-                                }
-
-
-                            }
 
                         }
                     } else {
                         if (pvp && cardArrF.length == 2) {
                             if (firstPlayer) {
-                                console.log('Player1')
-                                // console.log(playerComp)
                                 firstPlayer = false
                                 secondPlayer = true
 
                             } else {
-                                console.log('Player2')
-                                // console.log(playerComp)
                                 firstPlayer = true
                                 secondPlayer = false
                             }
-                            // if(secondPlayer) {
-                            //     console.log('Player2')
-                            //     // console.log(playerComp)
-                            //     firstPlayer = true
-                            //     secondPlayer = false
-                            // }
                         }
 
                         if (twoPlayers) {
@@ -464,8 +377,6 @@ function createLevel() {
                             if (playerComp != 0 && twoPlayers) {
                                 cardsTurn = []
                                 let compare = []
-                                let cardArrF = []
-                                let cardArrB = []
                                 var cards2 = document.getElementsByClassName('card')
                                 var cardsArr = []
                                 for (let card2 of cards2) {
@@ -479,7 +390,6 @@ function createLevel() {
                                     const card = cardsArr[compRand];
                                     var frontComp = card.firstChild
                                     cardsTurn.push(card)
-                                    // turnedCards.push(card)
                                     compare.unshift(frontComp.innerText)
                                     card.className = 'turn-card'
                                     cardsArr = cardsArr.toSpliced(compRand, 1)
@@ -487,7 +397,6 @@ function createLevel() {
                                     if (turn == 2) {
                                         if (compare[0] == compare[1]) {
                                             player2++
-
                                             turn = 0
                                             res++
                                             cardsTurn = []
@@ -510,10 +419,7 @@ function createLevel() {
                                                 }
                                                 player = 0
                                                 player2 = 0
-
-                                                // container.innerHTML = ''
                                                 clearInterval(compTurn)
-                                                // let turnedCards = document.getElementsByClassName('turn-card')
                                                 setTimeout(() => {
 
                                                     for (let card3 of turnedCards) {
@@ -524,12 +430,11 @@ function createLevel() {
                                                 setTimeout(() => {
                                                     levelSwitch()
                                                 }, 1000)
-
                                             }
                                         } else {
                                             clearInterval(compTurn)
                                             playerComp = 0
-
+                                            compare = []
                                             var turnBack = setInterval(() => {
                                                 for (let cardTurned of cardsTurn) {
                                                     cardTurned.className = 'card'
@@ -543,29 +448,19 @@ function createLevel() {
                                                         card3.style.pointerEvents = 'all'
                                                     }
                                                 }
-                                            }, 500)
-
-
-                                            compare = []
+                                            }, 500)                                            
                                         }
                                     }
 
                                 }, 1000)
-
                             }
                         }
-
-
                     }
                 }, 500)
             }
         }
-
     }
-
 }
-
-
 
 function levelSwitch() {
     switch (level) {
@@ -573,8 +468,8 @@ function levelSwitch() {
         case 1:
             res = 0
             timer = 0
-            interval = 40
-
+            if(window.innerWidth < 576) interval = 40
+            else interval = 20
             container.className = 'level1'
             container.innerHTML = ''
             row = ['a', 'b']
@@ -584,8 +479,10 @@ function levelSwitch() {
         case 2:
             res = 0
             timer = 0
-            interval = 60
-
+            minutes = generateRandom(10, 25)
+            sbMinutes.innerText = `${minutes}`
+            if(window.innerWidth < 576) interval = 60
+            else interval = 30
             container.className = 'level2'
             container.innerHTML = ''
             row = ['a', 'b', 'c', 'd']
@@ -595,8 +492,10 @@ function levelSwitch() {
         case 3:
             res = 0
             timer = 0
-            interval = 90
-
+            minutes = generateRandom(25, 45)
+            sbMinutes.innerText = `${minutes}`
+            if(window.innerWidth < 576) interval = 90
+            else interval = 45
             container.className = 'level3'
             container.innerHTML = ''
             row = ['a', 'b', 'c', 'd', 'e', 'f']
@@ -606,8 +505,10 @@ function levelSwitch() {
         case 4:
             res = 0
             timer = 0
-            interval = 140
-
+            minutes = generateRandom(45, 60)
+            sbMinutes.innerText = `${minutes}`
+            if(window.innerWidth < 576) interval = 140
+            else interval = 70
             container.className = 'level4'
             container.innerHTML = ''
             row = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
@@ -617,8 +518,10 @@ function levelSwitch() {
         case 5:
             res = 0
             timer = 0
-            interval = 190
-
+            minutes = generateRandom(60, 75)
+            sbMinutes.innerText = `${minutes}`
+            if(window.innerWidth < 576) interval = 190
+            else interval = 95
             container.className = 'level5'
             container.innerHTML = ''
             row = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l']
@@ -628,7 +531,10 @@ function levelSwitch() {
         case 6:
             res = 0
             timer = 0
-            interval = 250
+            minutes = generateRandom(75, 90)
+            sbMinutes.innerText = `${minutes}`
+            if(window.innerWidth < 576) interval = 250
+            else interval = 125
             container.className = 'level6'
             container.innerHTML = ''
             row = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r']
@@ -637,6 +543,8 @@ function levelSwitch() {
             break;
 
         default:
+            minutes = 90
+            sbMinutes.innerText = `${minutes}`
             if (pvp || twoPlayers) {
                 container.innerHTML = ''
                 scoreBoard.style.display = 'block'
@@ -653,6 +561,14 @@ function levelSwitch() {
             }
             break;
     }
+}
+
+function generateRandom(min, max) {
+    let difference = max - min;
+    let rand = Math.random();
+    rand = Math.floor(rand * difference);
+    rand = rand + min;
+    return rand;
 }
 
 
