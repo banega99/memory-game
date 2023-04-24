@@ -10,7 +10,7 @@ var logo = document.getElementsByClassName('logo')[0]
 var title = document.getElementById('title')
 var line = document.getElementsByClassName('line')[0]
 var timer = 0
-var timerBtn = 1
+var timerBtn = 5
 var interval
 var defeat = document.getElementById('defeat')
 if (level == 1) interval = 30
