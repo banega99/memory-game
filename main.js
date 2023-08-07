@@ -219,6 +219,7 @@ function defWin() {
     defeat.style.display = 'none'
     scoreBoard.style.display = 'none'
     exit.style.display = 'none'
+    exit.style.right = '10px'
     scoreBoard.classList.remove('score-win')
     clearInterval(timerLine)
     window.removeEventListener('click', defWin)
@@ -229,9 +230,13 @@ function createLevel() {
         logo.style.left = 'auto'
         logo.style.right = '10px'
         scoreBoard.style.display = 'block'
-        if(window.innerWidth > 576){
-            exit.style.right = '170px'
-        } else exit.style.right = '120px'
+        if (window.innerWidth > 576) {
+            exit.style.right = '180px'
+            exit.style.top = '30px'
+        } else {
+            exit.style.right = '130px'
+            exit.style.top = '30px'
+        }
     }
     if (timerMode) {
         console.log(interval)
