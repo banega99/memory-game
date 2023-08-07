@@ -241,7 +241,7 @@ function createLevel() {
         
     }
     if(pvp) {
-        score2.innerText = `comp`
+        playerName2.innerText = `comp`
     }
     if (timerMode) {
         console.log(interval)
@@ -349,7 +349,7 @@ function createLevel() {
                                 }
                             }
 
-                            if(timerLine)clearInterval(timerLine)
+                            if(timerMode)clearInterval(timerLine)
                             player = 0
                             player2 = 0
                             timer = 0
