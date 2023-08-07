@@ -349,7 +349,7 @@ function createLevel() {
                                 }
                             }
 
-                            clearInterval(timerLine)
+                            if(timerLine)clearInterval(timerLine)
                             player = 0
                             player2 = 0
                             timer = 0
