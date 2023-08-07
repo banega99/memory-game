@@ -207,9 +207,10 @@ li{
 .menu {
     width: fit-content;
     height: fit-content;
-    top: 30%;
-    left: 40%;
+    top: 50%;
+    left: 50%;
     position: absolute;
+    transform: translate(-50%, -50%);
     /* border: 1px solid; */
 }
 
@@ -526,15 +527,31 @@ li{
     font-size: 40px;
 }
 
+#exit {
+    display: none;
+    background-color: rgba(33, 53, 71, .6);
+    border-radius: 2px;
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    padding: 8px;
+    top: 10px;
+    right: 10px;
+    color: antiquewhite;
+}
+
+#exit h4 {
+    margin: 0;
+}
+
+#exit:hover {
+    cursor: pointer;
+    color: rgba(33, 53, 71);
+    background-color: antiquewhite;
+}
+
+
 @media (max-width: 576px) {
-    .menu {
-        width: fit-content;
-        height: fit-content;
-        top: 20%;
-        left: 25%;
-        position: absolute;
-        /* border: 1px solid; */
-    }
     .logo {
         position: absolute;
         top: 10px;

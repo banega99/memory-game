@@ -21,7 +21,7 @@ var scoreBoard = document.getElementsByClassName('score')[0]
 var score1 = document.getElementsByClassName('score1')[0]
 var score2 = document.getElementsByClassName('score2')[0]
 var sbMinutes = document.getElementById('minutes')
-var minutes = 00
+var minutes = 0
 var playerName = document.getElementsByClassName('player1')[0]
 var playerName2 = document.getElementsByClassName('player2')[0]
 var player = 0
@@ -33,6 +33,7 @@ var mode = document.getElementById('mode')
 var chooseMode = document.getElementById('choose-mode')
 var modeLi = document.getElementsByClassName('mode-li')
 var menu = document.getElementsByClassName('menu')[0]
+var exit = document.getElementById('exit')
 
 score1.innerText = `${player}`
 score2.innerText = `${comp}`
@@ -49,9 +50,9 @@ mode.addEventListener('click', () => {
     mode.style.display = 'none'
     startBtn.style.pointerEvents = 'none'
     startBtn.style.opacity = '0.6'
-    setTimeout(()=>{
+    setTimeout(() => {
         window.addEventListener('click', display)
-    }, 200)    
+    }, 200)
     for (let i = 0; i < modeLi.length; i++) {
         const element = modeLi[i];
         element.addEventListener('click', () => {
@@ -173,6 +174,23 @@ function lvlBtnWdth() {
 
 }
 
+function startTimer() {
+    function tick() {
+        timer++
+        line.style.width = `${timer}px`
+        if (line.style.width === `${window.innerWidth}px`) {
+            container.innerHTML = ''
+            defeat.style.display = 'flex'
+            window.addEventListener('click', defWin)
+            clearInterval(timerLine)
+        }
+    }
+    const timerLine = setInterval(tick, interval)
+    return timerLine
+}
+
+
+
 function defWin() {
     level = 1
     res = 0
@@ -180,16 +198,29 @@ function defWin() {
     column = ['a', 'b']
     timer = 0
     interval = 40
+    player = 0
+    player2 = 0
+    scorePlayer1 = 0
+    scorePlayer2 = 0
+    comp = 0
+    score1.innerText = `${scorePlayer1}`
+    score2.innerText = `${scorePlayer2}`
+    sbMinutes.innerText = `00`
     line.style.width = `${timer}px`
     container.innerHTML = ''
     startBtn.style.pointerEvents = 'all';
     startBtn.style.display = 'flex'
     menu.style.display = 'block'
     mode.style.display = 'flex'
+    logo.style.left = '10px'
+    logo.style.right = 'auto'
     timerBtn = 5
     startBtn.innerText = 'START'
     defeat.style.display = 'none'
     scoreBoard.style.display = 'none'
+    exit.style.display = 'none'
+    scoreBoard.classList.remove('score-win')
+    clearInterval(timerLine)
     window.removeEventListener('click', defWin)
 }
 
@@ -198,21 +229,15 @@ function createLevel() {
         logo.style.left = 'auto'
         logo.style.right = '10px'
         scoreBoard.style.display = 'block'
+        if(window.innerWidth > 576){
+            exit.style.right = '170px'
+        } else exit.style.right = '120px'
     }
     if (timerMode) {
         console.log(interval)
-        var timerLine = setInterval(() => {
-            timer++
-            line.style.width = `${timer}px`
-            if (line.style.width === `${window.innerWidth}px`) {
-                container.innerHTML = ''
-                defeat.style.display = 'flex'
-                window.addEventListener('click',defWin)
-                clearInterval(timerLine)
-            }
-        }, interval)
+        timerLine = startTimer()
     }
-
+    exit.style.display = 'block'
     container.innerHTML = ''
     lvlBtnWdth()
     var rowColCon = row.concat(column)
@@ -314,8 +339,6 @@ function createLevel() {
                                 }
                             }
 
-                            console.log('kraj')
-                            console.log(cardsTurn)
                             clearInterval(timerLine)
                             player = 0
                             player2 = 0
@@ -448,7 +471,7 @@ function createLevel() {
                                                         card3.style.pointerEvents = 'all'
                                                     }
                                                 }
-                                            }, 500)                                            
+                                            }, 500)
                                         }
                                     }
 
@@ -468,7 +491,7 @@ function levelSwitch() {
         case 1:
             res = 0
             timer = 0
-            if(window.innerWidth < 576) interval = 40
+            if (window.innerWidth < 576) interval = 40
             else interval = 20
             container.className = 'level1'
             container.innerHTML = ''
@@ -481,7 +504,7 @@ function levelSwitch() {
             timer = 0
             minutes = generateRandom(10, 25)
             sbMinutes.innerText = `${minutes}`
-            if(window.innerWidth < 576) interval = 60
+            if (window.innerWidth < 576) interval = 60
             else interval = 30
             container.className = 'level2'
             container.innerHTML = ''
@@ -494,7 +517,7 @@ function levelSwitch() {
             timer = 0
             minutes = generateRandom(25, 45)
             sbMinutes.innerText = `${minutes}`
-            if(window.innerWidth < 576) interval = 90
+            if (window.innerWidth < 576) interval = 90
             else interval = 45
             container.className = 'level3'
             container.innerHTML = ''
@@ -507,7 +530,7 @@ function levelSwitch() {
             timer = 0
             minutes = generateRandom(45, 60)
             sbMinutes.innerText = `${minutes}`
-            if(window.innerWidth < 576) interval = 140
+            if (window.innerWidth < 576) interval = 140
             else interval = 70
             container.className = 'level4'
             container.innerHTML = ''
@@ -520,7 +543,7 @@ function levelSwitch() {
             timer = 0
             minutes = generateRandom(60, 75)
             sbMinutes.innerText = `${minutes}`
-            if(window.innerWidth < 576) interval = 190
+            if (window.innerWidth < 576) interval = 190
             else interval = 95
             container.className = 'level5'
             container.innerHTML = ''
@@ -533,7 +556,7 @@ function levelSwitch() {
             timer = 0
             minutes = generateRandom(75, 90)
             sbMinutes.innerText = `${minutes}`
-            if(window.innerWidth < 576) interval = 250
+            if (window.innerWidth < 576) interval = 250
             else interval = 125
             container.className = 'level6'
             container.innerHTML = ''
@@ -548,7 +571,7 @@ function levelSwitch() {
             if (pvp || twoPlayers) {
                 container.innerHTML = ''
                 scoreBoard.style.display = 'block'
-                scoreBoard.className = 'score-win'
+                scoreBoard.classList.add('score-win')
                 window.addEventListener('click', defWin)
             }
             if (timerMode) {
