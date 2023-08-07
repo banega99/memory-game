@@ -233,10 +233,10 @@ function createLevel() {
         scoreBoard.style.display = 'block'
         if (window.innerWidth > 576) {
             exit.style.right = '180px'
-            exit.style.top = '30px'
+            exit.style.top = '15px'
         } else {
             exit.style.right = '130px'
-            exit.style.top = '30px'
+            exit.style.top = '15px'
         }
     }
     if (timerMode) {
