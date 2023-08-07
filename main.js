@@ -238,9 +238,10 @@ function createLevel() {
             exit.style.right = '130px'
             exit.style.top = '15px'
         }
-        if(pvp) {
-            score2.innerText = `comp`
-        }
+        
+    }
+    if(pvp) {
+        score2.innerText = `comp`
     }
     if (timerMode) {
         console.log(interval)
