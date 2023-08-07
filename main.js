@@ -220,6 +220,7 @@ function defWin() {
     scoreBoard.style.display = 'none'
     exit.style.display = 'none'
     exit.style.right = '10px'
+    exit.style.top = '10px'
     scoreBoard.classList.remove('score-win')
     clearInterval(timerLine)
     window.removeEventListener('click', defWin)
