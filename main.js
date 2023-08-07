@@ -68,7 +68,7 @@ mode.addEventListener('click', () => {
                     twoPlayers = true
                     pvp = false
                     var playerPrompt = prompt('Red player name')
-                    playerName.innerText = `${playerPrompt}`
+                    playerName.innerText = playerPrompt ? `${playerPrompt}` : 'plyr'
                     display()
                     break;
                 case 2:
@@ -77,8 +77,8 @@ mode.addEventListener('click', () => {
                     pvp = true
                     var playerPrompt = prompt('Red player name')
                     var playerPrompt2 = prompt('Blue player name')
-                    playerName.innerText = `${playerPrompt}`
-                    playerName2.innerText = `${playerPrompt2}`
+                    playerName.innerText = playerPrompt? `${playerPrompt}` : 'plyr1'
+                    playerName2.innerText = playerPrompt2? `${playerPrompt2}` : 'plyr2'
                     display()
                     break;
             }
