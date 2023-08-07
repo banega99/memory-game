@@ -222,7 +222,7 @@ function defWin() {
     exit.style.right = '10px'
     exit.style.top = '10px'
     scoreBoard.classList.remove('score-win')
-    clearInterval(timerLine)
+    if(timerLine)clearInterval(timerLine)
     window.removeEventListener('click', defWin)
 }
 
@@ -237,6 +237,9 @@ function createLevel() {
         } else {
             exit.style.right = '130px'
             exit.style.top = '15px'
+        }
+        if(pvp) {
+            score2.innerText = `comp`
         }
     }
     if (timerMode) {
