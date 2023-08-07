@@ -240,7 +240,7 @@ function createLevel() {
         }
         
     }
-    if(pvp) {
+    if(twoPlayers) {
         playerName2.innerText = `comp`
     }
     if (timerMode) {
