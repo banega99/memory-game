@@ -229,16 +229,8 @@ function defWin() {
 function createLevel() {
     if (twoPlayers || pvp) {
         logo.style.left = 'auto'
-        logo.style.right = '10px'
-        scoreBoard.style.display = 'block'
-        if (window.innerWidth > 576) {
-            exit.style.right = '180px'
-            exit.style.top = '15px'
-        } else {
-            exit.style.right = '130px'
-            exit.style.top = '15px'
-        }
-        
+        logo.style.right = '75px'
+        scoreBoard.style.display = 'block'   
     }
     if(twoPlayers) {
         playerName2.innerText = `comp`
